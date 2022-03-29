@@ -24,13 +24,19 @@ console.log(domain);
 // typeOfEmail("a.wiersma@outlook.com") geeft "Extern"
 
 function typeOfEmail (emailAddress) {
-    if (emailAddress.substring(emailAddress.indexOf('@') + 1) === 'novi.nl') {
-        return 'Medewerker';
-    } else if (emailAddress.substring(emailAddress.indexOf('@') + 1) === 'novi-education.nl') {
-        return 'Student';
-    }else{
-        return 'Extern';
+    const domain = emailAddress.substring(emailAddress.indexOf('@') + 1);
+    let typeOfEmail = 'Extern';
+    switch(domain) {
+        case 'novi.nl':
+            typeOfEmail = 'Medewerker'; 
+            break;
+        case 'novi-education.nl':
+            typeOfEmail = 'Student'
+            break;
+        default:
+            break;
     }
+    return typeOfEmail;
 }
 const typeOfPerson = typeOfEmail('eefjuh.de.jong@novi.nl');
 console.log(typeOfPerson);
